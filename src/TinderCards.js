@@ -10,23 +10,23 @@ function TinderCards() {
           },
           {
                name: 'Jeff Bezos',
-               url: 'https://www.google.com'
+               url: 'https://image.cnbcfm.com/api/v1/image/105907143-1557513032836gettyimages-1142462855.jpeg?v=1625506871'
           }
      ]);
      
      return (
           <div className='tinderCards'>
-               <div className='tinderCards__cardContainer'>
+               <div className='tinderCards__cardContainer'> 
                     {people.map((person) => (
-                         <ReactTinderCard className='cardSwipe'
+                         <ReactTinderCard className='card' // "swipe" - this is each card in the array 'cardContainer'
                               key={person.name}
                               preventSwipe={['up','down']}
                               onSwipe={(dir) => {console.log(`${person.name} is being swiped.`)}}
-                              onCardLeftScreen={() => console.log(`${person.name} has left.`)}
-                         >
+                              onCardLeftScreen={() => console.log(`${person.name} has left.`)}>
 
-                              <div className='cards'>
-                                   {person.name}<br />{person.url}<br /><br />
+                              <div className='cardContent'  // "card"
+                                   style={{backgroundImage: `url(${person.url})`}}>
+                                   <h3>{person.name}</h3>
                               </div>
 
                          </ReactTinderCard>
