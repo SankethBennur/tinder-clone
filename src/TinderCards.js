@@ -15,7 +15,7 @@ function TinderCards() {
      ]);
      
      return (
-          <div className='tinderCards'>\
+          <div className='tinderCards'>
                <div className='tinderCards__cardContainer'>
                     {people.map((person) => (
                          <ReactTinderCard className='cardSwipe'
