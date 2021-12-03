@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './TinderCards.css';
 import ReactTinderCard from 'react-tinder-card';
+// const axios = require('./axios');
+import axios from './axios';
 
 function TinderCards() {
-     const [people, setPeople] = useState([
-          {
-               name: 'Elon Musk',
-               url: 'https://static01.nyt.com/images/2021/05/07/arts/07snl-musk-preview1-1/merlin_186856077_a3ba4d89-323a-4c13-80cf-4b9f23c011b4-mediumSquareAt3X.jpg'
-          },
-          {
-               name: 'Jeff Bezos',
-               url: 'https://image.cnbcfm.com/api/v1/image/105907143-1557513032836gettyimages-1142462855.jpeg?v=1625506871'
+     const [people, setPeople] = useState([]);
+
+     useEffect(() => {
+          async function fetchData() {
+               const req = await axios.get("/tinder/card");
+               setPeople(req.data);
           }
-     ]);
+          fetchData();
+     }, []);  // useEffect is a react-hook that runs only once.
+
+     console.log(people);
      
      return (
           <div className='tinderCards'>
@@ -25,7 +28,7 @@ function TinderCards() {
                               onCardLeftScreen={() => console.log(`${person.name} has left.`)}>
 
                               <div className='cardContent'  // "card"
-                                   style={{backgroundImage: `url(${person.url})`}}>
+                                   style={{backgroundImage: `url(${person.imgUrl})`}}>
                                    <h3>{person.name}</h3>
                               </div>
 
