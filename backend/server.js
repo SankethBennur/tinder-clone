@@ -14,7 +14,6 @@ app.use(Cors());
 
 // DB Config
 const connection_uri = 'mongodb+srv://tinder-admin:tinder-admin@tinderdb-cluster.yyngb.mongodb.net/tinderdb?retryWrites=true&w=majority';
-
 mongoose.connect(connection_uri, {});
 
 // API endpoint routes
