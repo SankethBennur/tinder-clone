@@ -14,7 +14,7 @@ app.use(Cors());
 
 // DB Config
 const connection_uri = 'mongodb+srv://tinder-admin:tinder-admin@tinderdb-cluster.yyngb.mongodb.net/tinderdb?retryWrites=true&w=majority';
-mongoose.connect(connection_uri, {});
+mongoose.connect(connection_uri, {}).then(console.log(`Connection to MongoDB Successful`));
 
 // API endpoint routes
 app.get("/", (req, res) => {res.status(200).send('Hell World.')});  // status 200 means okay! / fetch from DB successful
