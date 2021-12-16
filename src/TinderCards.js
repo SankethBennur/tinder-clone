@@ -5,7 +5,7 @@ import ReactTinderCard from 'react-tinder-card';
 import axios from './axios';
 
 function TinderCards() {
-     const [people, setPeople] = useState([]);
+     const [people, setPeople] = useState([]);  // people variable is always followed by a setter variable.
 
      useEffect(() => {
           async function fetchData() {
@@ -25,7 +25,7 @@ function TinderCards() {
                               key={person.name}
                               preventSwipe={['up','down']}
                               onSwipe={(dir) => {console.log(`${person.name} is being swiped.`)}}
-                              onCardLeftScreen={() => console.log(`${person.name} has left.`)}>
+                              onCardLeftScreen={() => console.log(`${person.name} has left.`)} >
 
                               <div className='cardContent'  // "card"
                                    style={{backgroundImage: `url(${person.imgUrl})`}}>
