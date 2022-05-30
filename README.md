@@ -1,4 +1,4 @@
-Project sucessfully deployed in Heroku!
+Project sucessfully deployed with Heroku!
 https://tinder-clone-2509.herokuapp.com/
 
 # Getting Started with Create React App
